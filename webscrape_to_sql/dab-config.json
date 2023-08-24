@@ -1,0 +1,51 @@
+{
+  "$schema": "dab.draft-01.schema.json",
+  "data-source": {
+    "database-type": "mssql",
+    "connection-string":  "Server=tcp:grub.database.windows.net,1433;Initial Catalog=grub;Persist Security Info=False;User ID=grubbington;Password=mommalovegrub123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  },
+  "mssql": {
+    "set-session-context": true
+  },
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/api"
+    },
+    "graphql": {
+      "allow-introspection": true,
+      "enabled": true,
+      "path": "/graphql"
+    },
+    "host": {
+      "mode": "development",
+      "cors": {
+        "origins": [],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      }
+    }
+  },
+  "entities": {
+    "Menu": {
+    "source": "dbo.menu_items",
+    "permissions": [
+      {
+        "actions": ["*"],
+        "role": "anonymous"
+      }
+    ]
+  },
+    "Restaurants": {
+    "source": "dbo.restaurants",
+    "permissions": [
+      {
+        "actions": ["*"],
+        "role": "anonymous"
+      }
+    ]
+  }
+  }
+}

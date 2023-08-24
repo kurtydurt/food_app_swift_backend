@@ -1,0 +1,1 @@
+SELECT * FROM restaurants FOR JSON AUTO;
