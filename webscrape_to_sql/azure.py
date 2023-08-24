@@ -79,8 +79,8 @@ terms_to_category = {
 def azure_connect():
     server = 'tcp:grub.database.windows.net'
     database = 'grub'
-    username = 'grubbington'
-    password = 'mommalovegrub123!'
+    username = 'PLACEHOLDER'
+    password = 'PLACEHOLDER'
     driver = '{ODBC Driver 17 for SQL Server}'
 
     cnxn = pyodbc.connect('DRIVER=' + driver +

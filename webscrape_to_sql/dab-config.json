@@ -1,11 +1,11 @@
 {
-  "$schema": "dab.draft-01.schema.json",
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.7.6/dab.draft.schema.json",
   "data-source": {
     "database-type": "mssql",
-    "connection-string":  "Server=tcp:grub.database.windows.net,1433;Initial Catalog=grub;Persist Security Info=False;User ID=grubbington;Password=mommalovegrub123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-  },
-  "mssql": {
-    "set-session-context": true
+    "options": {
+      "set-session-context": false
+    },
+    "connection-string": "PLACEHOLDER"
   },
   "runtime": {
     "rest": {
@@ -29,23 +29,27 @@
     }
   },
   "entities": {
-    "Menu": {
-    "source": "dbo.menu_items",
-    "permissions": [
-      {
-        "actions": ["*"],
-        "role": "anonymous"
-      }
-    ]
-  },
     "Restaurants": {
-    "source": "dbo.restaurants",
-    "permissions": [
-      {
-        "actions": ["*"],
-        "role": "anonymous"
-      }
-    ]
-  }
+      "source": "dbo.restaurants",
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            "*"
+          ]
+        }
+      ]
+    },
+    "Menu": {
+      "source": "dbo.menu_items",
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            "*"
+          ]
+        }
+      ]
+    }
   }
 }
